@@ -11,18 +11,31 @@
 
 <body>
     <div id="app">
-        <input type="text" v-model="name">
-        <p>{{ name }}</p>
+        <button v-on:click="counter++">Increase</button>
+        <button v-on:click="counter--">Decrease</button>
+        <button v-on:click="secondCounter++">Increase second</button>
+        <p>{{ counter }} | {{ secondCounter }}</p>
+        <p>{{ result() }} | {{ output }}</p>
     </div>
 
     <script>
         new Vue({
             el: '#app',
             data: {
-                name: 'Max'
+                counter: 0,
+                secondCounter: 0
+            },
+            computed: {
+                output: function () {
+                    console.log('Computed');
+                    return this.counter * 2 > 10 ? 'Greater than 10' : 'Less than 10';
+                }
             },
             methods: {
-                
+                result: function () {
+                    console.log('Method');
+                    return this.counter * 2 > 10 ? 'Greater than 10' : 'Less than 10';
+                }
             }
         });
     </script>
