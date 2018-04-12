@@ -25,10 +25,18 @@
                 counter: 0,
                 secondCounter: 0
             },
-            computed: {
+            computed: { // this will listen to the counter value only
                 output: function () {
                     console.log('Computed');
                     return this.counter * 2 > 10 ? 'Greater than 10' : 'Less than 10';
+                }
+            },
+            watch:{ // this will listen to all changes
+                counter: function(){
+                    var vm = this;
+                    setTimeout(function(){
+                        vm.counter = 0;
+                    }, 2000);
                 }
             },
             methods: {
