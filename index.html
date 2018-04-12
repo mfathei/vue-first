@@ -12,23 +12,16 @@
 
 <body>
     <div id="app">
-        <p v-if="show">You can see me</p>
-        <p v-else>Now You see me</p>
-        <!-- use template to group elements -->
-        <template v-if="show">
-            <h1>Heading</h1>
-            <p>Inside a template</p>
-        </template>
-        <!-- v-show will hide it but keep it in dom -->
-        <p v-show="show">Do you also see me?</p>
-        <button @click="show = !show">Switch</button>
+        <ul>
+            <li v-for="ingredient in ingredients">{{ ingredient }}</li>
+        </ul>
     </div>
 
     <script>
         new Vue({
             el: '#app',
             data: {
-                show: true
+                ingredients: ['meat', 'bean', 'milk'],
             }
         });
     </script>
