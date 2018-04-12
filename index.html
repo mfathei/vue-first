@@ -25,6 +25,8 @@
                 <div v-for="(value, key, index) in person">{{ key }}: {{ value }} ({{ index }})</div>
             </li>
         </ul>
+        <span v-for="n in 10">{{ n }}</span>
+
     </div>
 
     <script>
@@ -32,9 +34,16 @@
             el: '#app',
             data: {
                 ingredients: ['meat', 'bean', 'milk'],
-                persons: [
-                    {name: 'Max', age: 27, color: 'red'},
-                    {name: 'Anna', age: 'unkown', color: 'blue'}
+                persons: [{
+                        name: 'Max',
+                        age: 27,
+                        color: 'red'
+                    },
+                    {
+                        name: 'Anna',
+                        age: 'unkown',
+                        color: 'blue'
+                    }
                 ]
             }
         });
