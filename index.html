@@ -6,30 +6,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>VueJs</title>
+    <link rel="stylesheet" href="style.css">
     <script src="vue.js"></script>
 </head>
 
 <body>
     <div id="app">
-        <button @click="changeLink">Change Link</button>
-        <a :href="link">Click Me</a>
+        <div class="demo" @click="attachRed = !attachRed" :class="{red: attachRed}"></div>
+        <div class="demo" :class="{red: attachRed}"></div>
+        <div class="demo"></div>
     </div>
 
     <script>
-
-        // shorthands
-        // v-on: = @
-        // v-bind: = :
         new Vue({
             el: '#app',
             data: {
-                counter: 0,
-                link: 'http://google.com'
+                attachRed: false,
             },
             methods: {
-                changeLink: function(){
-                    this.link = 'http://apple.com';
-                }
             }
         });
     </script>
