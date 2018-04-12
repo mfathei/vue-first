@@ -12,8 +12,8 @@
 
 <body>
     <div id="app">
-        <div class="demo" @click="attachRed = !attachRed" :class="{red: attachRed}"></div>
-        <div class="demo" :class="{red: attachRed}"></div>
+        <div class="demo" @click="attachRed = !attachRed" :class="divClasses"></div>
+        <div class="demo" :class="divClasses"></div>
         <div class="demo"></div>
     </div>
 
@@ -23,8 +23,15 @@
             data: {
                 attachRed: false,
             },
-            methods: {
-            }
+            computed: {
+                divClasses: function () {
+                    return {
+                        red: this.attachRed,
+                        blue: !this.attachRed
+                    };
+                }
+            },
+            methods: {}
         });
     </script>
 </body>
